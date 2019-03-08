@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac5a6a049baee240ac9abcc4bf989b3, type: 3}
+  m_Name: Magneton
+  m_EditorClassIdentifier: 
+  id: 200
+  name: Magneton
+  description: Tres magentos unidos
+  level: 20
+  experience: 0
+  saludMaxima: 30
+  attack: 50
+  attackSpecial: 10
+  defense: 62
+  defenseSpecial: 45
+  speed: 95
