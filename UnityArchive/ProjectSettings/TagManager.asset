@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pokemon
+  - pokeGate
+  - Target
   layers:
   - Default
   - TransparentFX

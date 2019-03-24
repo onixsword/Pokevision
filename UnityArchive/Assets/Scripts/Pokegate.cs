@@ -8,35 +8,25 @@ public class Pokegate : MonoBehaviour
     [SerializeField] private List<Pokebehaviour> pokemons;
     private bool isActive = false;
 
-    public bool IsActive { get => isActive; set => isActive = value; }
-
-    public void openGate()
-    {
-        pokefield.SetActive(true);
-        foreach(Pokebehaviour p in pokemons)
+    public bool IsActive {
+        get
         {
-            p.gameObject.SetActive(true);
+            return isActive;
+        }
+        set
+        {
+            isActive = value;
+            openCloseGate();
         }
     }
 
-    public void openGate(Vector3 position)
+    private void openCloseGate()
     {
-        isActive = true;
-        pokefield.SetActive(true);
-        pokefield.transform.position = new Vector3(position.x, transform.position.y, position.z);
+        pokefield.SetActive(isActive);
+        pokefield.transform.position = new Vector3(transform.position.x, pokefield.transform.position.y, transform.position.z);
         foreach (Pokebehaviour p in pokemons)
         {
-            p.gameObject.SetActive(true);
-        }
-    }
-
-    public void closeGate()
-    {
-        isActive = false;
-        pokefield.SetActive(false);
-        foreach (Pokebehaviour p in pokemons)
-        {
-            p.gameObject.SetActive(false);
+            p.gameObject.SetActive(isActive);
         }
     }
 }

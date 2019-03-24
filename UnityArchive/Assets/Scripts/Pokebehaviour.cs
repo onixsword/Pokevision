@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class Pokebehaviour : MonoBehaviour
 {
     [Header("UI Display")]
+    [SerializeField] private GameObject InfoChart;
     [SerializeField] private pokemonInfo Data;
     [SerializeField] private Text Name;
     [SerializeField] private Text Level;
@@ -19,11 +20,13 @@ public class Pokebehaviour : MonoBehaviour
     [SerializeField] private Text Defense;
     [SerializeField] private Text DefenseSpecial;
     [SerializeField] private Text Speed;
+    private Vector3 initialScale;
+    [SerializeField] private float UIScalation;
 
-    //[Header("Animations")]
+    [Header("Animations")]
     private Animator anim;
 
-    [Header("audio")]
+    [Header("Audio")]
     [SerializeField] private AudioClip cry;
     [SerializeField] private AudioClip audioDescription;
     private AudioSource audio;
@@ -34,15 +37,24 @@ public class Pokebehaviour : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         audio = GetComponent<AudioSource>();
+        initialScale = InfoChart.transform.localScale;
     }
 
     private void Start()
     {
-        displayStats();
+        hideStats();
+        generateStats();
     }
 
-    private void displayStats()
+    private void OnEnable()
     {
+        spawnPokemon();
+        generateStats();
+    }
+
+    public void displayStats()
+    {
+        InfoChart.SetActive(true);
         Name.text = Data.Name;
         Level.text = Data.Level.ToString();
         Stamina.text = Data.Stamina.ToString();
@@ -51,6 +63,19 @@ public class Pokebehaviour : MonoBehaviour
         Defense.text = Data.Defense.ToString();
         DefenseSpecial.text = Data.DefenseSpecial.ToString();
         Speed.text = Data.Speed.ToString();
+        InfoChart.transform.localScale += InfoChart.transform.localScale * 
+            Vector3.Distance(InfoChart.transform.position, gameManager.instance.Player.transform.position) * UIScalation;
+    }
+
+    public void hideStats()
+    {
+        InfoChart.transform.localScale = initialScale;
+        InfoChart.SetActive(false);
+    }
+
+    private void generateStats()
+    {
+
     }
 
     private void spawnPokemon()

@@ -8,8 +8,7 @@ public class gameManager : MonoBehaviour
     public static gameManager instance;
 
     private Transform player;
-
-
+    private Pokegate activeGate;
 
     private void Awake()
     {
@@ -17,6 +16,16 @@ public class gameManager : MonoBehaviour
         else GameObject.Destroy(this.gameObject);
     }
 
-    public Transform Player { get => player; set => player = value; }
+    public void DeactivateGate()
+    {
+        if(Input.GetButtonDown("Fire2") && activeGate != null)
+        {
+            activeGate.IsActive = false;
+            activeGate = null;
 
+        }
+    }
+
+    public Transform Player { get => player; set => player = value; }
+    public Pokegate ActiveGate { get => activeGate; set => activeGate = value; }
 }

@@ -14,6 +14,8 @@ public class player : MonoBehaviour
 
     private AudioSource audio;
 
+    private Pokebehaviour activePokemon;
+
     private void Awake()
     {
         audio = GetComponent<AudioSource>();
@@ -34,19 +36,28 @@ public class player : MonoBehaviour
             Pokegate g = hit.collider.GetComponent<Pokegate>();
             if (g != null)
             {
-                if (g.IsActive) g.closeGate();
-                else g.openGate(transform.position);
-            } else
+                g.IsActive = !g.IsActive;
+            }
+            else
             {
                 Pokebehaviour b = hit.collider.GetComponent<Pokebehaviour>();
                 if (b != null)
                 {
-                    audio.clip = b.AudioDescription;
+                    activePokemon = b;
+                    audio.clip = activePokemon.AudioDescription;
                     audio.Play();
+                    activePokemon.displayStats();
                 }
             }
         }
-        //if(hit.collider != null) Debug.Log(hit.collider.name);
+
+        if(Input.GetButtonUp("Fire1") && activePokemon != null)
+        {
+            audio.Stop();
+            audio.clip = null;
+            activePokemon.hideStats();
+            activePokemon = null;
+        } 
     }
 
     private void OnDrawGizmos()
