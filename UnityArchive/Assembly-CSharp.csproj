@@ -66,19 +66,25 @@
     <Compile Include="Assets\Scripts\player.cs" />
     <Compile Include="Assets\Scripts\Pokebehaviour.cs" />
     <Compile Include="Assets\Scripts\Pokegate.cs" />
+    <Compile Include="Assets\Scripts\PokemonBaseInfo.cs" />
     <Compile Include="Assets\Scripts\pokemonInfo.cs" />
     <Compile Include="Assets\Scripts\printTargetDisplayed.cs" />
+    <Compile Include="Assets\Scripts\Transitioner.cs" />
     <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
     <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
     <None Include="Assets\Vuforia\Shaders\VertexLitWithZ.shader" />
     <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
     <None Include="Assets\Vuforia\Shaders\OutlineOpaque.shader" />
+    <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Emissive Diffuse.shader" />
+    <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Transparent Diffuse Bump Cutout.shader" />
     <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
     <None Include="Assets\Vuforia\Databases\Emulator\VuforiaEmulator.xml" />
     <None Include="Assets\Vuforia\Shaders\ClippingMask.shader" />
-    <None Include="Assets\StreamingAssets\Vuforia\PokemonMR.xml" />
+    <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Standard Diffuse Bump.shader" />
     <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />
+    <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Transparent Diffuse Bump.shader" />
     <None Include="Assets\Vuforia\Shaders\DepthContour.shader" />
+    <None Include="Assets\StreamingAssets\Vuforia\PokemonMR.xml" />
     <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/ultim/Desktop/Semestre X/VR2 - Realidad Virtual 2/Parcial 2/Pokevision/UnityArchive/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

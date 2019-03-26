@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="Wobbuffet" size="0.300000 0.257000" />
+    <ImageTarget name="Weepinbell" size="0.300000 0.228000" />
+    <ImageTarget name="staryu" size="0.300000 0.342857" />
+    <ImageTarget name="poliwag" size="0.300000 0.300000" />
+    <ImageTarget name="metapod" size="0.300000 0.365112" />
+    <ImageTarget name="Jigglypuff" size="0.300000 0.329237" />
+    <ImageTarget name="dratiny" size="0.300000 0.275833" />
     <ImageTarget name="magneton" size="0.100000 0.100000" />
   </Tracking>
 </QCARConfig>

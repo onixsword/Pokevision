@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac5a6a049baee240ac9abcc4bf989b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fb33252af81ed04eba39e94afaead94, type: 3}
   m_Name: Magneton
   m_EditorClassIdentifier: 
-  id: 200
+  id: 82
   name: Magneton
-  description: Tres magentos unidos
-  level: 20
-  experience: 0
-  saludMaxima: 30
-  attack: 50
-  attackSpecial: 10
-  defense: 62
-  defenseSpecial: 45
-  speed: 95
+  description: "Magneton emite una fuerte energ\xEDa magn\xE9tica que causa estragos
+    en los instrumentos mec\xE1nicos. Por ello, en las ciudades se avisa con sirenas
+    cuando hay concentraciones de estos Pok\xE9mon."
+  ps: 50
+  attack: 60
+  defense: 95
+  attackSpecial: 120
+  defenseSpecial: 70
+  speed: 70

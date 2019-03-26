@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb33252af81ed04eba39e94afaead94, type: 3}
+  m_Name: Staryu
+  m_EditorClassIdentifier: 
+  id: 120
+  name: Staryu
+  description: "Staryu posee un \xF3rgano central conocido como su n\xFAcleo, que
+    brilla con una luz roja. Si vas a la playa a finales de verano, podr\xE1s ver
+    los n\xFAcleos de estos Pok\xE9mon brillando como las estrellas del cielo."
+  ps: 30
+  attack: 45
+  defense: 55
+  attackSpecial: 70
+  defenseSpecial: 55
+  speed: 85

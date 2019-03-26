@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb33252af81ed04eba39e94afaead94, type: 3}
+  m_Name: Dratini
+  m_EditorClassIdentifier: 
+  id: 147
+  name: Dratini
+  description: "Dratini muda y se despoja de la vieja piel constantemente. Es algo
+    que necesita hacer porque la energ\xEDa que tiene en su interior no para de alcanzar
+    niveles incontrolables."
+  ps: 41
+  attack: 64
+  defense: 45
+  attackSpecial: 50
+  defenseSpecial: 50
+  speed: 50

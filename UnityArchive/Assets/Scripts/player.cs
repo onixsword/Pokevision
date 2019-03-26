@@ -10,11 +10,17 @@ public class player : MonoBehaviour
     [SerializeField] private Transform laserReticleStart;
     [SerializeField] private float maxDistance;
     [SerializeField] private LayerMask reticleInteractiveLayers;
+    
     private RaycastHit hit;
 
     private AudioSource audio;
 
     private Pokebehaviour activePokemon;
+
+    private GameObject cameraContainer;
+    private Quaternion rot;
+    private bool gyroEnabled;
+    private Gyroscope gyro;
 
     private void Awake()
     {
@@ -25,10 +31,24 @@ public class player : MonoBehaviour
     {
         gameManager.instance.Player = transform;
         hit = new RaycastHit();
+
+        
+        cameraContainer = new GameObject("Camera Container");
+        cameraContainer.transform.position = transform.position;
+        transform.SetParent(cameraContainer.transform);
+
+        gyroEnabled = EnabledGyro();
     }
 
     private void Update()
     {
+        //Gyroscope update
+        if (gyroEnabled)
+        {
+            transform.localRotation = gyro.attitude * rot;
+        }
+
+        //Interaction
         Physics.Raycast(laserReticleStart.position, laserReticleStart.forward, out hit, maxDistance, reticleInteractiveLayers);
         
         if(hit.collider != null && Input.GetButtonDown("Fire1"))
@@ -37,6 +57,7 @@ public class player : MonoBehaviour
             if (g != null)
             {
                 g.IsActive = !g.IsActive;
+                gameManager.instance.ActiveGate = g.IsActive ? g : null;
             }
             else
             {
@@ -51,6 +72,7 @@ public class player : MonoBehaviour
             }
         }
 
+        //Cancel action
         if(Input.GetButtonUp("Fire1") && activePokemon != null)
         {
             audio.Stop();
@@ -58,6 +80,22 @@ public class player : MonoBehaviour
             activePokemon.hideStats();
             activePokemon = null;
         } 
+    }
+
+    private bool EnabledGyro()
+    {
+        if (SystemInfo.supportsGyroscope)
+        {
+            gyro = Input.gyro;
+            gyro.enabled = true;
+
+            cameraContainer.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
+            rot = new Quaternion(0, 0, 1, 0);
+
+            return true;
+        }
+
+        return false;
     }
 
     private void OnDrawGizmos()

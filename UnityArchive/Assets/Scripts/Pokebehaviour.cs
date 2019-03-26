@@ -11,10 +11,10 @@ public class Pokebehaviour : MonoBehaviour
 {
     [Header("UI Display")]
     [SerializeField] private GameObject InfoChart;
-    [SerializeField] private pokemonInfo Data;
+    [SerializeField] private PokemonBaseInfo Info;
     [SerializeField] private Text Name;
     [SerializeField] private Text Level;
-    [SerializeField] private Text Stamina;
+    [SerializeField] private Text ps;
     [SerializeField] private Text Attack;
     [SerializeField] private Text AttackSpecial;
     [SerializeField] private Text Defense;
@@ -22,6 +22,7 @@ public class Pokebehaviour : MonoBehaviour
     [SerializeField] private Text Speed;
     private Vector3 initialScale;
     [SerializeField] private float UIScalation;
+    private pokemonInfo Data;
 
     [Header("Animations")]
     private Animator anim;
@@ -38,6 +39,7 @@ public class Pokebehaviour : MonoBehaviour
         anim = GetComponent<Animator>();
         audio = GetComponent<AudioSource>();
         initialScale = InfoChart.transform.localScale;
+        Data = new pokemonInfo();
     }
 
     private void Start()
@@ -48,8 +50,8 @@ public class Pokebehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        spawnPokemon();
         generateStats();
+        spawnPokemon();
     }
 
     public void displayStats()
@@ -57,7 +59,7 @@ public class Pokebehaviour : MonoBehaviour
         InfoChart.SetActive(true);
         Name.text = Data.Name;
         Level.text = Data.Level.ToString();
-        Stamina.text = Data.Stamina.ToString();
+        ps.text = Data.PS.ToString();
         Attack.text = Data.Attack.ToString();
         AttackSpecial.text = Data.AttackSpecial.ToString();
         Defense.text = Data.Defense.ToString();
@@ -75,11 +77,12 @@ public class Pokebehaviour : MonoBehaviour
 
     private void generateStats()
     {
-
+        Data.generatePokemonData(Info);
     }
 
     private void spawnPokemon()
     {
+        transform.LookAt(gameManager.instance.Player);
         anim.SetTrigger("spawn");
         audio.clip = cry;
         audio.Play();
